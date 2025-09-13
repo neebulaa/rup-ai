@@ -204,6 +204,12 @@
         grid-template-columns: 1fr;
     }
 
+    #home-extra .img-wrapper {
+        height: 200px;
+        border-radius: .5rem;
+        overflow: hidden;
+    }
+
     #home-extra .img-wrapper:nth-of-type(2) {
         display: none;
     }
@@ -216,5 +222,11 @@
 
     #why-us .section .right ul{
         padding-left: 1rem;
+    }
+
+    .limitations-container {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
