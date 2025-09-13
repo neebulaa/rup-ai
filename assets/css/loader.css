@@ -1,0 +1,53 @@
+.loader-container {
+    width: 100%;
+    height: 100%;
+    background: var(--light);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0.3s ease;
+}
+
+.loader-container.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    width: 40px;
+    aspect-ratio: 1;
+    display: grid;
+    animation: l8-0 1.5s infinite linear;
+}
+
+.loader:before,
+.loader:after {
+    content: "";
+    grid-area: 1/1;
+    background: var(--primary);
+    clip-path: polygon(0 0%,100% 0,100% 100%);
+    animation: inherit;
+    animation-name: l8-1;
+}
+
+.loader:after {
+    --s:-1;
+}
+
+@keyframes l8-0 {
+    66%      {transform: skewX(0deg)}
+    80%,100% {transform: skewX(-45deg)}
+}
+
+@keyframes l8-1 {
+    0%   {transform:scale(var(--s,1)) translate(-0.5px,0)}
+    33%  {transform:scale(var(--s,1)) translate(calc(1px - 50%),calc(1px - 50%))}
+    66%  {transform:scale(var(--s,1)) translate(calc(1px - 50%),0%)}
+    100% {transform:scale(var(--s,1)) translate(calc(0.5px - 50%),0%)}
+}
